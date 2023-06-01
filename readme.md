@@ -4,11 +4,11 @@ A CLI created by Epic Quest TI for internal use by the Epic Quest TI team
 
 ### Installation
 
-#### npm install -g epictoolkit
+#### npm i -g epictoolkit
 
 ### Available commands
 
-To package your CLI up for NPM, do this:
+To run a command start with <code>etk</code> followed by one of the following commands and options
 
 ```shell
 $ npm login
