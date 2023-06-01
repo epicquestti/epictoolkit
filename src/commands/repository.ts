@@ -11,6 +11,13 @@ const command: GluegunCommand = {
       filesystem,
     } = toolbox
 
+    const etkPackage = filesystem.read('epictoolkitconfig.json', 'json')
+
+    if (!etkPackage) {
+      error('please, initiate with etk init command')
+      return
+    }
+
     if (!parameters.first) {
       error('please, insert repository name')
       return
@@ -18,7 +25,6 @@ const command: GluegunCommand = {
 
     info('Info: creating repository...\r')
 
-    const etkPackage = filesystem.read('epictoolkitconfig.json', 'json')
     const paschalName =
       parameters.first.charAt(0).toUpperCase() + parameters.first.slice(1)
 

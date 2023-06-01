@@ -12,6 +12,12 @@ const command: GluegunCommand = {
       filesystem,
     } = toolbox
 
+    const etkPackage = filesystem.read('epictoolkitconfig.json', 'json')
+    if (!etkPackage) {
+      error('please, initiate with etk init command')
+      return
+    }
+
     if (!parameters.first) {
       error(`${xmark} please, insert usecase´s name`)
       return
@@ -23,7 +29,6 @@ const command: GluegunCommand = {
       parameters.first.charAt(0).toLowerCase() + parameters.first.slice(1)
 
     info(`Info: creating full usecase ${paschalName}...`)
-    const etkPackage = filesystem.read('epictoolkitconfig.json', 'json')
 
     generate({
       template: 'usecase-controller.ts.ejs',
