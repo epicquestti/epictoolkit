@@ -2,8 +2,8 @@ import { GluegunCommand } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'usecase',
-  description: 'create a full usecase CRUD oprations.',
-  commandPath: ['aaaa', 'bbbb', 'cccc'],
+  description: 'Create a full usecase CRUD oprations.',
+  alias: 'u',
   run: async (toolbox) => {
     const {
       parameters,

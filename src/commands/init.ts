@@ -3,7 +3,8 @@ import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 
 const command: GluegunCommand = {
   name: 'init',
-  description: 'initiate the epictoolkit necessary structure',
+  alias: 'i',
+  description: 'Initiate the epictoolkit necessary structure.',
   run: async (toolbox: Toolbox) => {
     const {
       filesystem,

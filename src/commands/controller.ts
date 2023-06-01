@@ -2,7 +2,8 @@ import { GluegunCommand, filesystem } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'controller',
-  description: 'create a controller in controllers directory',
+  description: 'Create a controller in controllers directory.',
+  alias: 'c',
   run: async (toolbox) => {
     const {
       print: { error, info, success },

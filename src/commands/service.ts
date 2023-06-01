@@ -2,7 +2,8 @@ import { GluegunCommand } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'service',
-  description: 'create a service in services directory',
+  description: 'Create a service in services directory.',
+  alias: 's',
   run: async (toolbox) => {
     const {
       print: { error, info, success },

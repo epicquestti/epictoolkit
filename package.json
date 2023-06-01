@@ -28,6 +28,13 @@
     "url": "https://github.com/epicquestti/epictoolkit/issues"
   },
   "homepage": "https://github.com/epicquestti/epictoolkit#readme",
+  "keywords": [
+    "epic",
+    "quest",
+    "epic quest",
+    "tookit"
+  ],
+  "author": "Epic Quest TI ®",
   "files": [
     "build",
     "LICENSE",

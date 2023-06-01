@@ -2,7 +2,8 @@ import { GluegunCommand } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'repository',
-  description: 'create a repository in repositories directory',
+  description: 'Create a repository in repositories directory.',
+  alias: 'r',
   run: async (toolbox) => {
     const {
       print: { error, info, success },
