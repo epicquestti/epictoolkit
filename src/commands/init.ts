@@ -41,6 +41,7 @@ const command: GluegunCommand = {
       configFile.database.artifactDatabaseName = ''
       configFile.database.artifactDatabaseLocation = ''
       configFile.usecases = path
+      configFile.defaultResponseLocal = ''
 
       await filesystem.writeAsync('epictoolkitconfig.json', configFile, {
         jsonIndent: 1,

@@ -1,6 +1,6 @@
 {
   "name": "epictoolkit",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "epictoolkit CLI",
   "private": false,
   "types": "build/types/types.d.ts",
@@ -11,7 +11,8 @@
     "clean-build": "rd /s /q build",
     "compile": "tsc -p .",
     "copy-templates": "robocopy .\\src\\templates .\\build\\templates /E",
-    "build": "npm run clean-build && npm run compile && npm run copy-templates",
+    "build:full": "npm run clean-build && npm run compile && npm run copy-templates",
+    "build": "npm run compile",
     "prepublishOnly": "npm run build",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "test": "jest",

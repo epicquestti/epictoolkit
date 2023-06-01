@@ -15,14 +15,10 @@ To run a command start with <code>etk</code> followed by one of the following co
 #### init
 
 ```shell
-$ etk init
+$ etk init --api OR --next
 ```
 
 Start epic toolkit by creating the epic toolkit config file. File required for the operation of the cli. The init option must be executed indicating one of the valid and mandatory project options. They are --api, --next.
-
-```shell
-$ etk init --api OR --next
-```
 
 #### controller
 

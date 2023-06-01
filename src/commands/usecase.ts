@@ -36,7 +36,7 @@ const command: GluegunCommand = {
       props: {
         camelName,
         paschalName,
-        defaultResponseLocal: '../../../lib/types',
+        defaultResponseLocal: etkPackage.defaultResponseLocal,
       },
     })
 
