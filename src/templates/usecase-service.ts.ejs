@@ -2,16 +2,16 @@ import { <%= props.paschalName %>Repository } from '../repositories/<%= props.pa
 import { defaultResponse } from "<%= props.defaultResponseLocal %>"
 import {   
   create<%= props.paschalName %>ServiceProps 
-} from '../validations/create<%= props.paschalName %>Validation'
+} from '../validations/<%= props.camelName %>/create<%= props.paschalName %>Validation'
 import { 
   update<%= props.paschalName %>ServiceProps 
-} from '../validations/update<%= props.paschalName %>Validation'
+} from '../validations/<%= props.camelName %>/update<%= props.paschalName %>Validation'
 import { 
   get<%= props.paschalName %>ByIdServiceProps 
-} from '../validations/get<%= props.paschalName %>ByIdValidation'
+} from '../validations/<%= props.camelName %>/get<%= props.paschalName %>ByIdValidation'
 import { 
   delete<%= props.paschalName %>ServiceProps 
-} from '../validations/delete<%= props.paschalName %>Validation'
+} from '../validations/<%= props.camelName %>/delete<%= props.paschalName %>Validation'
 
 
 export class <%= props.paschalName %>Service {

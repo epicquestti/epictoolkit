@@ -28,15 +28,7 @@ const command: GluegunCommand = {
     const paschalName =
       parameters.first.charAt(0).toUpperCase() + parameters.first.slice(1)
 
-    if (parameters.options.empty) {
-      generate({
-        template: 'empty-service.ts.ejs',
-        target: `${etkPackage.usecases}/services/${paschalName}Service.ts`,
-        props: {
-          paschalName,
-        },
-      })
-    } else {
+    if (parameters.options.inject) {
       generate({
         template: 'service.ts.ejs',
         target: `${etkPackage.usecases}/services/${paschalName}Service.ts`,
@@ -45,6 +37,14 @@ const command: GluegunCommand = {
           camelName:
             parameters.first.charAt(0).toLowerCase() +
             parameters.first.slice(1),
+        },
+      })
+    } else {
+      generate({
+        template: 'empty-service.ts.ejs',
+        target: `${etkPackage.usecases}/services/${paschalName}Service.ts`,
+        props: {
+          paschalName,
         },
       })
     }

@@ -33,6 +33,8 @@ const command: GluegunCommand = {
       target: `${etkPackage.usecases}/repositories/${paschalName}Repository.ts`,
       props: {
         paschalName,
+        artifactDatabaseName: etkPackage.database.artifactDatabaseName,
+        artifactDatabaseLocation: etkPackage.database.artifactDatabaseLocation,
       },
     })
 

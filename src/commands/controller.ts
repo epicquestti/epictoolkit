@@ -28,21 +28,21 @@ const command: GluegunCommand = {
     const camelName =
       parameters.first.charAt(0).toLowerCase() + parameters.first.slice(1)
 
-    if (parameters.options.empty) {
-      generate({
-        template: 'empty-controller.ts.ejs',
-        target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
-        props: {
-          paschalName,
-        },
-      })
-    } else {
+    if (parameters.options.inject) {
       generate({
         template: 'controller.ts.ejs',
         target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
         props: {
           paschalName,
           camelName,
+        },
+      })
+    } else {
+      generate({
+        template: 'empty-controller.ts.ejs',
+        target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
+        props: {
+          paschalName,
         },
       })
     }

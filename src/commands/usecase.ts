@@ -48,6 +48,7 @@ const command: GluegunCommand = {
       props: {
         paschalName,
         camelName,
+        defaultResponseLocal: etkPackage.defaultResponseLocal,
       },
     })
 
@@ -57,6 +58,7 @@ const command: GluegunCommand = {
       template: 'usecase-repository.ts.ejs',
       target: `${etkPackage.usecases}/repositories/${paschalName}Repository.ts`,
       props: {
+        camelName,
         paschalName,
         artifactDatabaseName: etkPackage.database.artifactDatabaseName,
         artifactDatabaseLocation: etkPackage.database.artifactDatabaseLocation,

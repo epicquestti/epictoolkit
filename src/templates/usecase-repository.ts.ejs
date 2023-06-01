@@ -3,7 +3,7 @@ import <%= props.artifactDatabaseName %> from "<%= props.artifactDatabaseLocatio
 export class <%= props.paschalName %>Repository {
   public async create(params: any): Promise<any> {
     try {
-      // return await <%= props.artifactDatabaseName %>.statusFaturas.create({
+      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.create({
       //   data: params,
       // });
     } catch (error: any) {
@@ -13,7 +13,7 @@ export class <%= props.paschalName %>Repository {
 
   public async getById(params: any): Promise<any> {
     try {
-      // return await <%= props.artifactDatabaseName %>.statusFaturas.findFirst({
+      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
       //   where: {}
       // })
     } catch (error: any) {
@@ -23,7 +23,7 @@ export class <%= props.paschalName %>Repository {
 
   public async update(params: any): Promise<any> {
     try {
-      // return await <%= props.artifactDatabaseName %>.update.findFirst({
+      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
       //   where: {},
       //   data: {},
       // });
@@ -34,7 +34,7 @@ export class <%= props.paschalName %>Repository {
 
   public async delete(params: any): Promise<any> {
     try {
-      // return await <%= props.artifactDatabaseName %>.statusFaturas.update({
+      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
       //   where: {},
       //   data: {},
       // });
