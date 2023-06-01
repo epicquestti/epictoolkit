@@ -1,0 +1,6 @@
+import { z } from "zod";
+
+export const <%= props.camelName %>Validation = z.object({});
+
+export type <%= props.camelName %>ControllerProps = z.input<typeof <%= props.camelName %>Validation>;
+export type <%= props.camelName %>ServiceProps = z.output<typeof <%= props.camelName %>Validation>;

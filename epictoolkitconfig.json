@@ -1,0 +1,9 @@
+{
+  "database": {
+    "artifactDatabaseName": "prisma",
+    "artifactDatabaseLocation": "../../lib/backend/prisma",
+    "type": "prisma"
+  },
+  "type": "api",
+  "usecases": "src/usecases"
+}

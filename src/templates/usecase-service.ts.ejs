@@ -1,0 +1,71 @@
+import { <%= props.paschalName %>Repository } from '../repositories/<%= props.paschalName %>Repository'
+import { defaultResponse } from "<%= props.defaultResponseLocal %>/defaultResponse"
+import {   
+  create<%= props.paschalName %>ServiceProps 
+} from '../validations/create<%= props.paschalName %>Validation'
+import { 
+  update<%= props.paschalName %>ServiceProps 
+} from '../validations/update<%= props.paschalName %>Validation'
+import { 
+  get<%= props.paschalName %>ByIdServiceProps 
+} from '../validations/get<%= props.paschalName %>ByIdValidation'
+import { 
+  delete<%= props.paschalName %>ServiceProps 
+} from '../validations/delete<%= props.paschalName %>Validation'
+
+
+export class <%= props.paschalName %>Service {
+  constructor(private _<%= props.camelName %>Repository: <%= props.paschalName %>Repository) {}
+
+  public async create<%= props.paschalName %>(params: create<%= props.paschalName %>ServiceProps): Promise<defaultResponse> {
+    try {
+      return {
+        success: true
+      }
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async get<%= props.paschalName %>ById(params: get<%= props.paschalName %>ByIdServiceProps): Promise<defaultResponse> {
+    try {
+      return {
+        success: true
+      }
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async update<%= props.paschalName %>(params: update<%= props.paschalName %>ServiceProps): Promise<defaultResponse> {
+    try {
+      return {
+        success: true
+      }
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async delete<%= props.paschalName %>(params: delete<%= props.paschalName %>ServiceProps): Promise<defaultResponse> {
+    try {
+      return {
+        success: true
+      }
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+}

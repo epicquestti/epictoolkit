@@ -1,0 +1,5 @@
+import { <%= props.paschalName %>Repository } from '../repositories/<%= props.paschalName %>Repository'
+
+export class <%= props.paschalName %>Service {
+  constructor(private _<%= props.camelName %>Repository: <%= props.paschalName %>Repository) {}
+}
