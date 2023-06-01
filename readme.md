@@ -56,6 +56,14 @@ $ etk repository repositoryName
 
 Creates a new "Repository" with the name entered after the repository.
 
+#### usecase
+
+```shell
+$ etk usecase usecaseName
+```
+
+Create a complete use case with the name entered as the first parameter, which is mandatory. A complete use case consists of creating all the necessary files (controller, validations, service, repository) with the name provided as a parameter and with the necessary functions to contemplate a CRUD (create, read, update, delete).
+
 # License
 
 MIT - see LICENSE
