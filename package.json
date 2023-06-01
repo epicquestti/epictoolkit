@@ -10,7 +10,7 @@
   "scripts": {
     "clean-build": "rd /s /q build",
     "compile": "tsc -p .",
-    "copy-templates": "copyfiles ./src/templates/* ./build/templates",
+    "copy-templates": "robocopy .\\src\\templates .\\build\\templates /E",
     "build": "npm run clean-build && npm run compile && npm run copy-templates",
     "prepublishOnly": "npm run build",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
