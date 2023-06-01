@@ -1,8 +1,12 @@
 # epictoolkit CLI
 
-A CLI for Epic quest projects.
+A CLI created by Epic Quest TI for internal use by the Epic Quest TI team
 
-## Publishing to NPM
+### Installation
+
+#### npm install -g epictoolkit
+
+### Available commands
 
 To package your CLI up for NPM, do this:
 
