@@ -2,7 +2,7 @@
   "name": "epictoolkit",
   "version": "1.0.0",
   "description": "epictoolkit CLI",
-  "private": true,
+  "private": false,
   "types": "build/types/types.d.ts",
   "bin": {
     "etk": "bin/epictoolkit"
