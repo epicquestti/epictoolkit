@@ -46,6 +46,12 @@ const command: GluegunCommand = {
         path = 'main/'
       }
 
+      configFile.database = {
+        artifactDatabaseLocation: '',
+        artifactDatabaseName: '',
+        type: '',
+      }
+
       if (
         !parameters.options.database ||
         parameters.options.database === 'prisma'
@@ -55,8 +61,6 @@ const command: GluegunCommand = {
       if (parameters.options.database === 'papr')
         configFile.database.type = 'papr'
 
-      configFile.database.artifactDatabaseName = ''
-      configFile.database.artifactDatabaseLocation = ''
       configFile.defaultResponseLocal = ''
 
       path = 'usecases/'
