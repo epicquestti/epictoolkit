@@ -1,6 +1,17 @@
 import { GluegunCommand } from 'gluegun'
 import { Toolbox } from 'gluegun/build/types/domain/toolbox'
 
+type configTypeProps = {
+  database?: {
+    artifactDatabaseName: string
+    artifactDatabaseLocation: string
+    type: string
+  }
+  type?: string
+  usecases?: string
+  defaultResponseLocal?: string
+}
+
 const command: GluegunCommand = {
   name: 'init',
   alias: 'i',
@@ -12,24 +23,29 @@ const command: GluegunCommand = {
       parameters,
     } = toolbox
     try {
-      if (!parameters.options.api && !parameters.options.next)
+      if (
+        !parameters.options.api &&
+        !parameters.options.next &&
+        !parameters.options.nextron
+      )
         throw new Error('Error: Please set an init option\r')
 
       info('Info: starting epic tookit...\r')
-      const existSrc = await filesystem.existsAsync('src')
+
+      const configFile: configTypeProps = {}
       let path = ''
 
-      if (existSrc) path = 'src/usecases'
-      else path = 'usecases'
-
-      const configFile: any = {
-        database: { artifactDatabaseName: '', artifactDatabaseLocation: '' },
-        type: '',
-        usecases: '',
-      }
+      const existSrc = await filesystem.existsAsync('src')
+      if (existSrc) path = 'src/'
 
       if (parameters.options.api) configFile.type = 'api'
       if (parameters.options.next) configFile.type = 'next'
+
+      if (parameters.options.nextron) {
+        configFile.type = 'nextron'
+        path = 'main/'
+      }
+
       if (
         !parameters.options.database ||
         parameters.options.database === 'prisma'
@@ -41,8 +57,11 @@ const command: GluegunCommand = {
 
       configFile.database.artifactDatabaseName = ''
       configFile.database.artifactDatabaseLocation = ''
-      configFile.usecases = path
       configFile.defaultResponseLocal = ''
+
+      path = 'usecases/'
+
+      configFile.usecases = path
 
       await filesystem.writeAsync('epictoolkitconfig.json', configFile, {
         jsonIndent: 1,
