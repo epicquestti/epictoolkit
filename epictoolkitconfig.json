@@ -1,9 +1,10 @@
 {
-  "database": {
-    "artifactDatabaseName": "prisma",
-    "artifactDatabaseLocation": "../../lib/backend/prisma",
-    "type": "prisma"
-  },
-  "type": "api",
-  "usecases": "src/usecases"
+ "type": "nextron",
+ "database": {
+  "artifactDatabaseLocation": "",
+  "artifactDatabaseName": "",
+  "type": "prisma"
+ },
+ "defaultResponseLocal": "",
+ "usecases": "usecases/"
 }

@@ -36,14 +36,14 @@ const command: GluegunCommand = {
       let path = ''
 
       const existSrc = await filesystem.existsAsync('src')
-      if (existSrc) path = 'src/'
+      if (existSrc) path = path + 'src/'
 
       if (parameters.options.api) configFile.type = 'api'
       if (parameters.options.next) configFile.type = 'next'
 
       if (parameters.options.nextron) {
         configFile.type = 'nextron'
-        path = 'main/'
+        path = path + 'main/'
       }
 
       configFile.database = {
@@ -63,7 +63,7 @@ const command: GluegunCommand = {
 
       configFile.defaultResponseLocal = ''
 
-      path = 'usecases/'
+      path = path + 'usecases/'
 
       configFile.usecases = path
 
