@@ -1,0 +1,95 @@
+import { <%= props.paschalName %>Service } from '../../services/<%= props.paschalName %>Service'
+import { defaultResponse } from "../<%= props.defaultResponseLocal %>"
+import { 
+  create<%= props.paschalName %>Validation, 
+  create<%= props.paschalName %>ControllerProps 
+} from '../../validations/<%= props.camelName %>/create<%= props.paschalName %>Validation'
+import { 
+  update<%= props.paschalName %>Validation, 
+  update<%= props.paschalName %>ControllerProps 
+} from '../../validations/<%= props.camelName %>/update<%= props.paschalName %>Validation'
+import { 
+  get<%= props.paschalName %>ByIdValidation, 
+  get<%= props.paschalName %>ByIdControllerProps 
+} from '../../validations/<%= props.camelName %>/get<%= props.paschalName %>ByIdValidation'
+import { 
+  delete<%= props.paschalName %>Validation, 
+  delete<%= props.paschalName %>ControllerProps 
+} from '../../validations/<%= props.camelName %>/delete<%= props.paschalName %>Validation'
+
+
+export class <%= props.paschalName %>Controller {
+  constructor(private _<%= props.camelName %>Service: <%= props.paschalName %>Service) {}
+
+  public async create<%= props.paschalName %>(params: create<%= props.paschalName %>ControllerProps): Promise<defaultResponse> {
+    try {
+      const validation = await create<%= props.paschalName %>Validation.safeParseAsync(params);
+
+      if (!validation.success)
+        throw new Error(validation.error.issues[0].message);
+
+      return await this._<%= props.camelName %>Service.create<%= props.paschalName %>(
+        validation.data
+      );
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async get<%= props.paschalName %>ById(params: get<%= props.paschalName %>ByIdControllerProps): Promise<defaultResponse> {
+    try {
+      const validation = await get<%= props.paschalName %>ByIdValidation.safeParseAsync(params);
+
+      if (!validation.success)
+        throw new Error(validation.error.issues[0].message);
+
+      return await this._<%= props.camelName %>Service.get<%= props.paschalName %>ById(
+        validation.data
+      );
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async update<%= props.paschalName %>(params: update<%= props.paschalName %>ControllerProps): Promise<defaultResponse> {
+    try {
+      const validation = await update<%= props.paschalName %>Validation.safeParseAsync(params);
+
+      if (!validation.success)
+        throw new Error(validation.error.issues[0].message);
+
+      return await this._<%= props.camelName %>Service.update<%= props.paschalName %>(
+        validation.data
+      );
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+
+  public async delete<%= props.paschalName %>(params: delete<%= props.paschalName %>ControllerProps): Promise<defaultResponse> {
+    try {
+      const validation = await delete<%= props.paschalName %>Validation.safeParseAsync(params);
+
+      if (!validation.success)
+        throw new Error(validation.error.issues[0].message);
+
+      return await this._<%= props.camelName %>Service.delete<%= props.paschalName %>(
+        validation.data
+      );
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
+}

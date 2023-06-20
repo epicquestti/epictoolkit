@@ -41,7 +41,7 @@ const command: GluegunCommand = {
       })
 
       generate({
-        template: 'usecase-controller.ts.ejs',
+        template: 'usecase-next-controller.ts.ejs',
         target: `${etkPackage.usecases}/controllers/${camelName}/${paschalName}Controller.ts`,
         props: {
           camelName,
