@@ -1,0 +1,12 @@
+
+import <%= props.paschalName %>Repository from "../../repositories/<%= props.paschalName %>Repository"
+import <%= props.paschalName %>Repository from "../../services/mobileUser/<%= props.paschalName %>Service"
+import <%= props.paschalName %>Repository from "./<%= props.paschalName %>Controller"
+
+const <%= props.camelName %>Repository = new <%= props.paschalName %>Repository()
+const <%= props.camelName %>Service = new <%= props.paschalName %>Service(
+  userRepository
+)
+const <%= props.camelName %>Controller = new <%= props.paschalName %>Controller(<%= props.camelName %>Service)
+
+export default <%= props.camelName %>Controller

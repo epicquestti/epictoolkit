@@ -30,15 +30,37 @@ const command: GluegunCommand = {
 
     info(`Info: creating full usecase ${paschalName}...`)
 
-    generate({
-      template: 'usecase-controller.ts.ejs',
-      target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
-      props: {
-        camelName,
-        paschalName,
-        defaultResponseLocal: etkPackage.defaultResponseLocal,
-      },
-    })
+    if (etkPackage.type === 'next') {
+      generate({
+        template: 'index-next-controllers.ts.ejs',
+        target: `${etkPackage.usecases}/controllers/${paschalName}/index.ts`,
+        props: {
+          camelName,
+          paschalName,
+          defaultResponseLocal: etkPackage.defaultResponseLocal,
+        },
+      })
+
+      generate({
+        template: 'usecase-controller.ts.ejs',
+        target: `${etkPackage.usecases}/controllers/${camelName}/${paschalName}Controller.ts`,
+        props: {
+          camelName,
+          paschalName,
+          defaultResponseLocal: etkPackage.defaultResponseLocal,
+        },
+      })
+    } else {
+      generate({
+        template: 'usecase-controller.ts.ejs',
+        target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
+        props: {
+          camelName,
+          paschalName,
+          defaultResponseLocal: etkPackage.defaultResponseLocal,
+        },
+      })
+    }
 
     success(`${checkmark} Success: ${paschalName}Controller created\r`)
 

@@ -3,7 +3,7 @@ import { GluegunCommand } from 'gluegun'
 const command: GluegunCommand = {
   name: 'validation',
   description: 'Create a validation in validation directory.',
-  alias: 'v',
+  alias: 'va',
   run: async (toolbox) => {
     const {
       print: { error, info, success },
