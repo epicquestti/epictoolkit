@@ -30,22 +30,43 @@ const command: GluegunCommand = {
       parameters.first.charAt(0).toLowerCase() + parameters.first.slice(1)
 
     if (parameters.options.inject) {
-      generate({
-        template: 'controller.ts.ejs',
-        target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
-        props: {
-          paschalName,
-          camelName,
-        },
-      })
+      if (etkPackage.type === 'next') {
+        generate({
+          template: 'next-controller.ts.ejs',
+          target: `${etkPackage.usecases}/controllers/${camelName}/${paschalName}Controller.ts`,
+          props: {
+            paschalName,
+            camelName,
+          },
+        })
+      } else {
+        generate({
+          template: 'controller.ts.ejs',
+          target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
+          props: {
+            paschalName,
+            camelName,
+          },
+        })
+      }
     } else {
-      generate({
-        template: 'empty-controller.ts.ejs',
-        target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
-        props: {
-          paschalName,
-        },
-      })
+      if (etkPackage.type === 'next') {
+        generate({
+          template: 'empty-controller.ts.ejs',
+          target: `${etkPackage.usecases}/controllers/${camelName}/${paschalName}Controller.ts`,
+          props: {
+            paschalName,
+          },
+        })
+      } else {
+        generate({
+          template: 'empty-controller.ts.ejs',
+          target: `${etkPackage.usecases}/controllers/${paschalName}Controller.ts`,
+          props: {
+            paschalName,
+          },
+        })
+      }
     }
 
     success('Success: controller created with success.')
