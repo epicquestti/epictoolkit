@@ -33,11 +33,25 @@ export class <%= props.paschalName %>Repository {
     }
   }
 
-  public async delete(params: any): Promise<void> {
+  public async softDelete(params: any): Promise<void> {
     try {
-      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
-        where: {},
+      await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
+        where: {
+          id: params.id
+        },
         data: {},
+      });
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async hardDelete(params: { id: number }): Promise<void> {
+    try {
+      await <%= props.artifactDatabaseName %>.<%= props.camelName %>.delete({
+        where: {
+          id: params.id
+        }
       });
     } catch (error: any) {
       throw new Error(error.message);
@@ -50,9 +64,9 @@ export class <%= props.paschalName %>Repository {
   }): Promise<<%= props.paschalName %>[]> {
     try {
       return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findMany({
-        where: {},
-        take: prisma.take,
-        skip: prisma.page * prisma.take,
+        where: params,
+        take: params.take,
+        skip: params.page * params.take,
       });
     } catch (error: any) {
       throw new Error(error.message);
@@ -62,14 +76,14 @@ export class <%= props.paschalName %>Repository {
   public async count(params: any): Promise<number> {
     try {
       return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.count({
-        where: {}
+        where: params
       });
     } catch (error: any) {
       throw new Error(error.message);
     }
   }
   
-  public async verifyIfExist(params: any): Promise<<%= props.paschalName %>[]> | null> {
+  public async verifyIfExist(params: any): Promise<<%= props.paschalName %> | null> {
     try {
       return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
         where: params,
@@ -79,7 +93,7 @@ export class <%= props.paschalName %>Repository {
     }
   }
 
-  public async verifyIfExistNotId(params: any): Promise<<%= props.paschalName %>[]> | null> {
+  public async verifyIfExistNotId(params: any): Promise<<%= props.paschalName %> | null> {
     try {
       return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
         where: params,
