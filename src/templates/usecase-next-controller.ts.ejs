@@ -92,4 +92,22 @@ export class <%= props.paschalName %>Controller {
       };
     }
   }
+
+  public async list<%= props.paschalName %>(params: list<%= props.paschalName %>ControllerProps): Promise<defaultResponse> {
+    try {
+      const validation = await list<%= props.paschalName %>Validation.safeParseAsync(params);
+
+      if (!validation.success)
+        throw new Error(validation.error.issues[0].message);
+
+      return await this._<%= props.camelName %>Service.list<%= props.paschalName %>(
+        validation.data
+      );
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.message,
+      };
+    }
+  }
 }

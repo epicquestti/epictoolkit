@@ -120,6 +120,14 @@ const command: GluegunCommand = {
       },
     })
 
+    generate({
+      template: 'validation.ts.ejs',
+      target: `${etkPackage.usecases}/validations/${camelName}/list${paschalName}Validation.ts`,
+      props: {
+        camelName: `list${paschalName}`,
+      },
+    })
+
     success(`${checkmark} Success: usecase ${paschalName} validation created`)
   },
 }

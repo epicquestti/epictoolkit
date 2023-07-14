@@ -1,45 +1,91 @@
+import { <%= props.paschalName %> } from "@prisma/client";
 import <%= props.artifactDatabaseName %> from "<%= props.artifactDatabaseLocation %>"
 
 export class <%= props.paschalName %>Repository {
-  public async create(params: any): Promise<any> {
+  public async create(params: any): Promise<<%= props.paschalName %>> {
     try {
-      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.create({
-      //   data: params,
-      // });
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.create({
+        data: params,
+      });
     } catch (error: any) {
       throw new Error(error.message);
     }
   }
 
-  public async getById(params: any): Promise<any> {
+  public async getById(params: { id: number }): Promise<<%= props.paschalName %> | null> {
     try {
-      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
-      //   where: {}
-      // })
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
+        where: {}
+      })
     } catch (error: any) {
       throw new Error(error.message);
     }
   }
 
-  public async update(params: any): Promise<any> {
+  public async update(params: any): Promise<<%= props.paschalName %>> {
     try {
-      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
-      //   where: {},
-      //   data: {},
-      // });
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
+        where: {},
+        data: {},
+      });
     } catch (error: any) {
       throw new Error(error.message);
     }
   }
 
-  public async delete(params: any): Promise<any> {
+  public async delete(params: any): Promise<void> {
     try {
-      // return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
-      //   where: {},
-      //   data: {},
-      // });
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.update({
+        where: {},
+        data: {},
+      });
     } catch (error: any) {
       throw new Error(error.message);
     }
   }
+
+  public async list(params: {
+    take: number;
+    page: number;
+  }): Promise<<%= props.paschalName %>[]> {
+    try {
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findMany({
+        where: {},
+        take: prisma.take,
+        skip: prisma.page * prisma.take,
+      });
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async count(params: any): Promise<number> {
+    try {
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.count({
+        where: {}
+      });
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }
+  
+  public async verifyIfExist(params: any): Promise<<%= props.paschalName %>[]> | null> {
+    try {
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
+        where: params,
+      });
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async verifyIfExistNotId(params: any): Promise<<%= props.paschalName %>[]> | null> {
+    try {
+      return await <%= props.artifactDatabaseName %>.<%= props.camelName %>.findFirst({
+        where: params,
+      });
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  }      
 }
