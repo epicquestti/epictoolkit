@@ -128,7 +128,7 @@ const command: GluegunCommand = {
       },
     })
 
-    success(`${checkmark} Success: usecase ${paschalName} validation created`)
+    success(`${checkmark} Success: ${paschalName} validation created`)
   },
 }
 
