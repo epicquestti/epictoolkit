@@ -1,4 +1,4 @@
-# epictoolkit CLI v1.2.20
+# epictoolkit CLI v1.2.21
 
 A CLI created by Epic Quest TI for internal use by the Epic Quest TI team
 

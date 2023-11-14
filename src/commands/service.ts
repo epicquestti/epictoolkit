@@ -2,7 +2,8 @@ import { GluegunCommand } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'service',
-  description: 'Create a service in services directory.',
+  description:
+    'Create a service in the services directory. The "--inject" option can be provided to also add injection of a repository of the same name.',
   alias: 's',
   run: async (toolbox) => {
     const {

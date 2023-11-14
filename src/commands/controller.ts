@@ -2,7 +2,8 @@ import { GluegunCommand, filesystem } from 'gluegun'
 
 const command: GluegunCommand = {
   name: 'controller',
-  description: 'Create a controller in controllers directory.',
+  description:
+    'Create a controller in the controller´s directory. The "--inject" option can be provided to also add injection of a service of the same name.',
   alias: 'c',
   run: async (toolbox) => {
     const {

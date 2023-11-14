@@ -1,6 +1,6 @@
 {
   "name": "epictoolkit",
-  "version": "1.2.20",
+  "version": "1.2.21",
   "description": "epictoolkit CLI",
   "private": false,
   "types": "build/types/types.d.ts",
