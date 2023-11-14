@@ -1,11 +1,17 @@
-# epictoolkit CLI
+# epictoolkit CLI v1.2.18
 
 A CLI created by Epic Quest TI for internal use by the Epic Quest TI team
 
-### Installation
+### installation
 
 ```shell
 $ npm i -g epictoolkit
+```
+
+### update
+
+```shell
+$ npm update -g epictoolkit
 ```
 
 ### Available commands
